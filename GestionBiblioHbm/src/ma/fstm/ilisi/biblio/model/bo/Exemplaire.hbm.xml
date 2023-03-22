@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ma.fstm.ilisi.biblio.model.bo">
+    <class name="Exemplaire" table="EXEMPLAIRE" schema="BIBLIO2" >
+        <id name="idexp"  column="IDEXP">
+            <generator class="sequence">
+            <param name="sequence">TAB_Exemplaire_Seq</param> 
+         </generator>
+        </id>
+        <many-to-one name="livre" class="Livre"  column="ISBN"/>
+        <set name="emprunts" > <!-- table="EMPRUNT" inverse="true" lazy="true" fetch="select"-->
+            <key column="IDEXMP"/>
+            <one-to-many class="Emprunt" />
+        </set>
+    </class>
+</hibernate-mapping>

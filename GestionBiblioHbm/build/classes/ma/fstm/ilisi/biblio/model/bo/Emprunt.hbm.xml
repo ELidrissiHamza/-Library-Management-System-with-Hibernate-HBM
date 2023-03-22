@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ma.fstm.ilisi.biblio.model.bo">
+    <class name="Emprunt"  table="EMPRUNT" schema="BIBLIO2" >
+        <composite-id name="id" class="EmpruntId">
+            <key-many-to-one name="exmp"  class="Exemplaire">
+                <column name="IDEXMP" />
+            </key-many-to-one>
+            <key-many-to-one name="ad"  class="Adherant">
+                <column name="CIN"  />
+            </key-many-to-one>
+            <key-property name="dateemp" type="string">
+                <column name="DATEEMP" />
+            </key-property>
+        </composite-id>
+        <property name="retourne"/> 
+    </class>
+</hibernate-mapping>

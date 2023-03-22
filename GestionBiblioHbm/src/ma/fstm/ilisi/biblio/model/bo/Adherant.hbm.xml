@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ma.fstm.ilisi.biblio.model.bo">
+    <class name="Adherant" table="ADHERANT" schema="BIBLIO2" >
+        <id name="cin" type="string" column="CIN">
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string" />
+        <property name="prenom" type="string">
+        </property>
+        <set name="emprunts" >
+            <key column="CIN"/>
+            <one-to-many class="Emprunt" />
+        </set>
+    </class>
+</hibernate-mapping>

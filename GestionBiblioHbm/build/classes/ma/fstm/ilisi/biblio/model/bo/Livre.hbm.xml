@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="ma.fstm.ilisi.biblio.model.bo">
+    <class name="Livre" table="LIVRE" schema="BIBLIO2" >
+        <id name="isbn" type="string">
+            <generator class="assigned" />
+        </id>
+        <property name="titre" type="string" />
+        <set name="exemplaires" cascade="all" fetch="join" > <!-- table="EXEMPLAIRE" inverse="true" lazy="true" fetch="select"-->
+            <key column="ISBN" />
+            <one-to-many class="Exemplaire" />
+        </set>
+    </class>
+</hibernate-mapping>
